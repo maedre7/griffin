@@ -1,4 +1,6 @@
 @import "navbar.css";
+@import "form.css";
+@import "dashboard.css";
 
 .App {
     height: 100vh;

@@ -1,0 +1,60 @@
+.dashboard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-container {
+    width: 80%;
+}
+
+.dashboard-container span, p {
+    font-size: 16px;
+}
+
+.table-actions-container {
+    display: flex;
+}
+
+.table-actions-container * {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.table-icon-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.table-balance-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-balance-container span {
+    margin-bottom: 2px;
+}
+
+.table-balance-icon{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
