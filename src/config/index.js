@@ -63,4 +63,10 @@ export const CHAIN_TO_NETWORK = {
     '137': 'POLYGON'
 };
 
+export const VOLUME = {
+    MAINNET: 3494076,
+    OPTIMISM: 1000,
+    POLYGON: 20000
+};
+
 export const S3_URL = 'https://liquidator-dash-icons.s3.ap-south-1.amazonaws.com';

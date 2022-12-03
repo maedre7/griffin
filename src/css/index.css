@@ -1,6 +1,14 @@
 @import "navbar.css";
 @import "form.css";
 @import "dashboard.css";
+@import "form.css";
+@import "slider.css";
+@import "home.css";
+@import "navbar.css";
+@import "dashboard.css";
+@import "view.css";
+@import "list.css";
+@import "modal.css";
 
 .App {
     height: 100vh;

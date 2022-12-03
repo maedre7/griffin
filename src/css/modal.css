@@ -1,0 +1,106 @@
+.modal-main {
+    height: 550px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-container {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Modal top container */
+
+.modal-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.modal-divider {
+
+}
+
+/* Modal middle container */
+
+.modal-box-container {
+    /*height: 300px;*/
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-box {
+    height: 120px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 10px 0px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.modal-box-value-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-box-value-container span {
+    font-size: 16px;
+}
+
+/* Modal bottom container */
+
+.modal-range-container {
+    width: 80%;
+}
+
+.modal-range-container p {
+    padding: 0px 0px 10px 25px;
+}
+
+.modal-range-sub-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-range {
+    height: 130px;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.modal-range span {
+    font-size: 16px;
+}
+
+.modal-arrow {
+    font-size: 50px;
+    color: #007ee5;
+}
+
+.modal-button {
+    height: 40px;
+    width: 100%;
+}

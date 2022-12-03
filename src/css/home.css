@@ -1,0 +1,41 @@
+.home {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.home-container {
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.home-container-left {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 200px;
+
+}
+
+.home-container-right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home-description-container {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+}
+
+.home-description {
+    width: 800px;
+    font-size: 80px;
+    color: #007ee5;
+}
