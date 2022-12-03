@@ -11,7 +11,7 @@ const getConfig = (block) => {
 const multicall = async(calldata, block) => {
     try{
         const result = await aggregate(calldata, getConfig(block));
-        return Promise.resolve(result);
+        return Promise.resolve(result.results.transformed);
     }
     catch(e){
         return Promise.reject(e);
