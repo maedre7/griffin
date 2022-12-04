@@ -4,6 +4,7 @@ import Tabs from 'antd/lib/tabs';
 import Divider from "antd/lib/divider";
 import Button from "antd/lib/button";
 import {DoubleRightOutlined} from '@ant-design/icons';
+import {ExclamationCircleOutlined} from '@ant-design/icons';
 import LiFiWidgetView from "./lifi";
 import ResultView from './result';
 import {getAccount, getBalances, sendTransaction} from "../utils/metamask";
@@ -14,7 +15,7 @@ import {tickToPrice} from "@uniswap/v3-sdk";
 const customStyles = {
     content : {
         height                : '680px',
-        width                 : '800px',
+        width                 : '850px',
         top                   : '50%',
         left                  : '50%',
         right                 : 'auto',
@@ -38,6 +39,7 @@ const ModalView = (props) => {
     const [balances, setBalances] = useState(['0', '0']);
     const [showResult, setShowResult] = useState(false);
     const [activeKey, setActiveKey] = useState('1');
+    const [loader, setLoader] = useState(false);
 
     const fetchBalances = () => {
         getAccount().then((account) => {
@@ -73,13 +75,14 @@ const ModalView = (props) => {
 
     const onSubmit = async () => {
         try{
+            setLoader(true);
             //await enableMetamask();
             const account = await getAccount();
-            const {calldata, value} = getTransactionCalldata(props.position, account);
-            console.log(calldata, value);
-            await sendTransaction(calldata, account);
+            const {calldata} = getTransactionCalldata(props.position, account);
+            await sendTransaction(calldata, account, setShowResult);
         }
         catch(e){
+            setLoader(false);
             console.log(e);
         }
     }
@@ -109,22 +112,28 @@ const ModalView = (props) => {
                                         <span className="header-text">Deposit amount</span>
                                         <div className="modal-box-value-container">
                                             <span>{token0.symbol}</span>
-                                            <span>{round(fromDecimals(amount0, token0.decimals),  5) + ' ' + token0.symbol}</span>
+                                            <span>{round(fromDecimals(amount0, token0.decimals),  5)}</span>
                                         </div>
                                         <div className="modal-box-value-container">
                                             <span>{token1.symbol}</span>
-                                            <span>{round(fromDecimals(amount1, token1.decimals), 5) + ' ' + token1.symbol}</span>
+                                            <span>{round(fromDecimals(amount1, token1.decimals), 5)}</span>
                                         </div>
                                     </div>
                                     <div className="modal-box">
                                         <span className="header-text">Wallet balances</span>
                                         <div className="modal-box-value-container">
-                                            <span>{token0.symbol}</span>
-                                            <span>{round(fromDecimals(balances[0], token0.decimals), 5) + ' ' + token0.symbol}</span>
+                                            <span className="modal-box-error-container">
+                                                {errors.token0 && <ExclamationCircleOutlined className="error-icon" />}
+                                                <span>{token0.symbol}</span>
+                                            </span>
+                                            <span>{round(fromDecimals(balances[0], token0.decimals), 5)}</span>
                                         </div>
                                         <div className="modal-box-value-container">
-                                            <span>{token1.symbol}</span>
-                                            <span>{round(fromDecimals(balances[1], token1.decimals), 5) + ' ' + token1.symbol}</span>
+                                            <span className="modal-box-error-container">
+                                                {errors.token1 && <ExclamationCircleOutlined className="error-icon" />}
+                                                <span>{token1.symbol}</span>
+                                            </span>
+                                            <span>{round(fromDecimals(balances[1], token1.decimals), 5)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +154,9 @@ const ModalView = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <Button className="modal-button" disabled={Object.keys(errors).length > 0} type="primary" onClick={onSubmit}>Deposit</Button>
+                                {Object.keys(errors).length > 0 && <span>Insufficient balance, go to <span className="modal-link
+                                " onClick={() => setActiveKey('2')}>Lifi Bridge</span> </span>}
+                                <Button className="modal-button" loading={loader} disabled={Object.keys(errors).length > 0} type="primary" onClick={onSubmit}>Deposit</Button>
                             </div>
                         </div>
                     </Tabs.TabPane>
