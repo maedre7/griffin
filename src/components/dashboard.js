@@ -18,9 +18,9 @@ const Dashboard = (props) => {
                 });
             });
         })
-            .catch((e) => {
-                console.log(e);
-            });
+        .catch((e) => {
+            console.log(e);
+        });
     }, []);
 
     const columns = [
@@ -70,7 +70,7 @@ const Dashboard = (props) => {
             dataIndex: 'range',
             key: 'range',
             render: (val, item) => (
-                <span>{round(item.priceLower)} - {round(item.priceUpper)}</span>
+                <span>{round(item.tickLower)} -> {round(item.tickUpper)}</span>
             )
         },
         {
@@ -85,18 +85,6 @@ const Dashboard = (props) => {
             )
         }
     ];
-
-    const data = [{
-        fee: 3000,
-        key: "249629",
-        liquidity: "589071668242768344",
-        symbol0: "USDC",
-        symbol1: "WETH",
-        tickLower: 63900,
-        tickUpper: 77760,
-        token0: "0x4200000000000000000000000000000000000006",
-        token1: "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
-    }]
 
     return(
 
