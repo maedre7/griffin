@@ -1,6 +1,3 @@
-@import "navbar.css";
-@import "form.css";
-@import "dashboard.css";
 @import "form.css";
 @import "slider.css";
 @import "home.css";
@@ -10,21 +7,47 @@
 @import "list.css";
 @import "modal.css";
 
-.App {
-    height: 100vh;
-    width: 100vw;
-}
-
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0;
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  background-color: #F7F9FB;
+}
+
+.Main {
+  height: calc(100% - 70px);
+  width: 100%;
+}
+
+.MuiBox-root {
+  padding: 0;
+  margin: 0;
+}
+
+.css-2o24zz {
+  max-height: 580px;
+  height: auto;
+}
+
+.header-text {
+  font-weight: bold;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }

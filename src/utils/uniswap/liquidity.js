@@ -1,6 +1,6 @@
 import {Pool, Position, NonfungiblePositionManager} from '@uniswap/v3-sdk';
 import {Token, Percent} from '@uniswap/sdk-core';
-import {round, toDecimals} from "../helper";
+import {fromDecimals, round, toDecimals, toWei} from "../helper";
 
 export const getPoolInstance = (poolData) => {
 
@@ -51,7 +51,7 @@ export const computeTokenAmounts = (pool, tickLower, tickUpper, amount, currentT
 export const getTransactionCalldata = (position, account) => {
     const deadline = Math.floor(Date.now() / 1000) + 1000;
     const { calldata, value } = NonfungiblePositionManager.addCallParameters(position, {
-        slippageTolerance: new Percent(50, 10_000),
+        slippageTolerance: new Percent(2000, 10_000),
         recipient: account,
         deadline: deadline,
     });

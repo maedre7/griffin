@@ -2,8 +2,11 @@ import { LiFiWidget } from '@lifi/widget';
 
 const LiFiWidgetView = (props) => {
 
-    const widgetConfig = {
-        toToken: props.destToken.address,
+    console.log(props);
+
+    let widgetConfig = {
+        toChain: 137,
+        toToken: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
         integrator: 'Mantis',
         containerStyle: {
             maxHeight: '580px',
@@ -17,8 +20,17 @@ const LiFiWidgetView = (props) => {
 
             }
         },
-        appearance: 'light'
+        appearance: 'light',
+        variant: 'expandable'
     };
+
+    if(props.destToken.address){
+        widgetConfig = {
+            ...widgetConfig,
+            toChain: props.destChainId,
+            toToken: props.destToken.address
+        }
+    }
 
     return(
         <LiFiWidget config={widgetConfig} />

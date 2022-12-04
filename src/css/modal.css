@@ -104,3 +104,19 @@
     height: 40px;
     width: 100%;
 }
+
+.modal-box-error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-icon {
+    color: red;
+    margin-right: 3px;
+}
+
+.modal-link {
+    cursor: pointer;
+    color: #007ee5;
+}
